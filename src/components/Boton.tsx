@@ -6,15 +6,17 @@ interface IProps {
   texto: string;
   color?: string;
   ancho?: boolean;
+  action: (numero: string) => void;
 }
 
 const Boton = ({
   texto,
   color = CONSTS.colors.darkGrey,
   ancho = false,
+  action,
 }: IProps) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => action(texto)}>
       <View
         style={{
           ...styles.boton,
